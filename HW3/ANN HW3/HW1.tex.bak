@@ -1,0 +1,78 @@
+\documentclass[final,authoryear,3p,times,onecolumn]{elsarticle}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{indentfirst}
+\usepackage{amsthm}
+\usepackage{cite}
+\usepackage{bbding}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage[lined,boxed,commentsnumbered,ruled]{algorithm2e}
+\usepackage[colorlinks,urlcolor=blue]{hyperref}
+\usepackage[all,cmtip]{xy}
+\usepackage{multicol}
+\usepackage{color}
+\usepackage{subfigure}
+
+\geometry{left=2cm,right=2cm,top=2.5cm,bottom=2.5cm}
+\journal{Artificial Neural Networks}
+
+\theoremstyle{definition}
+\newtheorem{prop}{Proposition}
+\newcommand{\ie}{{\em i.e. }}
+
+
+
+\begin{document}
+
+\begin{frontmatter}
+    \title{\textbf{HW3 of Neural Networks}}
+    \author{Yang Guang 1140339072}
+\end{frontmatter}
+
+
+
+
+\section{Compare the advantages and disadvantages of these three task decomposition methods.}
+
+\subsection{One vs One}
+This method constructs $K(K-1)/2$ classifiers where
+each one is trained on data from two out of $K$
+classes. When testing, we can adopt a voting scheme: for a given testing sample, its class is the one has most votes.
+\subsection{One vs Rest}
+This method requires one classifier per category. The i-th SVM will be trained with all of the examples in the i-th class with positive labels, and all other examples with negative labels. When testing, the classifier which has the highest decision value is the class that sample belongs to.
+\subsection{Part vs Part}
+This method is based on the one vs one method. Any two-class problem can be further decomposed into a number of two-class sub-problems as small as needed. We can use the min-max structure to ensemble the models of sub-problems. And Figure \ref{fig:partpart} shows the main idea of this method:
+
+\section{Program Illustration}
+\paragraph{
+There are two Matlab programs, $BP\_batch.m$ and $BP\_online.m$, respectively implements the training and testing procedure of Batch Learning and Online Learning of back propagation algorithm
+}
+
+
+\section{Performance of the two ways}
+\paragraph{The performance can be viewed at Figure 1 below. The ans parameter is the average error of the forecasted data and the given label}
+\subsection{\bf{Processing Time}}
+\paragraph{
+The process time of the two methods of back propagation runs similar in this test case.
+\newline \indent I think this is because the testing file is not large sufficient to discriminate the difference of running time. Since batch method needs to load all training examples, in theory it will take a longer time to process with these data compared with online method.
+}
+\subsection{\bf{Precision}}
+\paragraph{
+By compute the average error between the forecasted result and given label, we can see the performance of precision of batch and online BP algorithm.
+\newline \indent  In the experiment displayed in the figure, We can find the precision of online training fits within $5$ percentage and $27$ percentage of batch method.
+}
+
+
+
+\begin{figure}[h]
+
+           \center
+           \scalebox{1.0}{\includegraphics{online.png}}
+           \scalebox{1.0}{\includegraphics{batch.png}}
+           \normalsize
+           \caption{Performance for BP}
+\end{figure}
+\end{document}

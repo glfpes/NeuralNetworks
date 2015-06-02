@@ -1,0 +1,23 @@
+\relax 
+\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
+\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
+\global\let\oldnewlabel\newlabel
+\gdef\newlabel#1#2{\newlabelxx{#1}#2}
+\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
+\AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
+\let\newlabel\oldnewlabel
+\fi}
+\fi}
+\global\let\hyper@last\relax 
+\gdef\HyperFirstAtBeginDocument#1{#1}
+\providecommand\HyField@AuxAddToFields[1]{}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Derive the BP algorithm for MLQPs in both online learning and batch learning ways.}{1}{section.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}\bf  {Online Learning}}{1}{subsection.1.1}}
+\@writefile{toc}{\contentsline {paragraph}{ For online learning, each iteration use a training example, and for the $n_{th}$ iteration, the total instantaneous error energy is $\epsilon (n)=\frac  {1}{2}\DOTSB \sum@ \slimits@ \limits _{j \in C}e^2_j(n)$, here C stands for all the neurons in the output layer. \newline  \indent So the local gradient for output neuron is $\delta _j(n)=e_j(n)f'_j(v_j(n))$. \newline  \indent And for hidden neurons is $\delta _j(n)=f'_j(v_j(n))\DOTSB \sum@ \slimits@ \limits _K\delta _k(2u_kx_k+v_k)$, here k stands for single successor neuron connected to hidden neuron j and K stands for all successor neurons connected to hidden neuron j. \newline  \indent So we can get the change of weights as the following formula: \newline  \indent $\Delta u_{ji}(n)=a_1\Delta u_{ji}(n-1) + \eta _1 \delta _j(n) x^2_i(n)$ \newline  \indent $\Delta v_{ji}(n)=a_2\Delta v_{ji}(n-1) + \eta _2 \delta _j(n) x_i(n)$}{1}{section*.1}}
+\@writefile{toc}{\contentsline {paragraph}{ Thus, we can derive the algorithm as follows: \newline  \indent Step1, Initialize the weights of u and v randomly. \newline  \indent Step2, For each training example n, calculate its $x_{kj}$ of the output neuron as the forward pass, and update u and v using given formula below: \newline  \indent $u(n+1) = u(n) + \Delta u$ \newline  \indent $v(n+1) = v(n) + \Delta v$ \newline  \indent Step3, Repeat Step2 until convergence}{1}{section*.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}\bf  {Batch Learning}}{1}{subsection.1.2}}
+\@writefile{toc}{\contentsline {paragraph}{ For batch back propagation, the adjustment delta values are accumulated over all training items, to give an aggregate set of deltas, and then the aggregated deltas are applied to each weight and bias. \newline  \indent So we can derive the algorithm for batch as follows: \newline  \indent Step1, Initialize the weights of u and v randomly. \newline  \indent Step2, For each training example n, calculate its $x_{kj}$ of the output neuron as the forward pass, and calculate $\Delta u$ and $\Delta v$ for each iteration, then add them to $\Delta U$ and $\Delta V$ \newline  \indent Step3, modify u and v by: \newline  \indent $u = u + \Delta U$ \newline  \indent $v = v + \Delta V$ }{1}{section*.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Performance of the two ways}{1}{section.2}}
